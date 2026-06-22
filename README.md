@@ -28,8 +28,8 @@
 | Sell Prices Understanding | Done |
 | Calendar Cleaning | Done |
 | Sales Train Cleaning | Done |
-| Sell Prices Cleaning | In Progress |
-| EDA & Feature Engineering | Next |
+| Sell Prices Cleaning | Done |
+| Merge & Validate | In Progress |
 | Modeling | Upcoming |
 | Deployment | Upcoming |
 
@@ -40,30 +40,42 @@
 ```
 GRADUATION_PROJECT/
 ├── data/
-│   ├── raw/                            # Original CSVs (not tracked by Git)
+│   ├── raw/
 │   │   ├── calendar.csv
 │   │   ├── sales_train_evaluation.csv
 │   │   └── sell_prices.csv
-│   └── processed/                      # Cleaned outputs
+│   └── processed/
+│       ├── calendar_cleaned.parquet
+│       ├── sales_train_cleaned.parquet
+│       └── sell_prices_cleaned.parquet
 │
 ├── notebooks/
-│   └── data_understanding/
-│       ├── 1_calendar_understanding.ipynb
-│       ├── 2_sales_train_understanding.ipynb
-|       └── 3_sell_prices_understanding.ipynb
+│   ├── data_understanding/
+│   │   ├── 1_calendar_understanding.ipynb
+│   │   ├── 2_sales_train_understanding.ipynb
+│   │   └── 3_sell_prices_understanding.ipynb
+│   └── data_cleaning/
+│       ├── calendar_cleaning.ipynb
+│       ├── sales_train_cleaning.ipynb
+│       └── sell_prices_cleaning.ipynb
 │
-|   └── data_cleaning/
-│       ├── 4_calendar_cleaning.ipynb
-│       └── 5_sales_train_cleaning.ipynb
 ├── src/
 │   └── data_cleaning/
 │       ├── __init__.py
 │       ├── calendar_cleaning.py
-│       └── sales_train_cleaning.py
+│       ├── sales_train_cleaning.py
+│       └── sell_prices_cleaning.py
+│
 ├── utils/
 │   ├── __init__.py
-│   └── cleaning_utils.py
+│   ├── cleaning_utils.py
+│   └── loading_utils.py
+│
 ├── docs/
+│   ├── cleaning_docs/
+│   │   ├── calendar_cleaning.md
+│   │   ├── sales_train_cleaning.md
+│   │   └── sell_prices_cleaning.md
 │   ├── columns.md
 │   └── insights.md
 │
@@ -71,8 +83,6 @@ GRADUATION_PROJECT/
 ├── main.py
 ├── requirements.txt
 └── README.md
-```
-
 ---
 
 ## Datasets
