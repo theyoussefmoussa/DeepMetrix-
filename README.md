@@ -26,8 +26,8 @@
 | Calendar Understanding | Done |
 | Sales Train Understanding | Done |
 | Sell Prices Understanding | Done |
-| Calendar Cleaning | Next |
-| Sales Train Cleaning | Next |
+| Calendar Cleaning | Done |
+| Sales Train Cleaning |  In Progress | 
 | Sell Prices Cleaning | Next |
 | EDA & Feature Engineering | Next |
 | Modeling | Upcoming |
@@ -52,6 +52,13 @@ GRADUATION_PROJECT/
 │       ├── 2_sales_train_understanding.ipynb
 │       └── 3_sell_prices_understanding.ipynb
 │
+├── src/
+│   └── data_cleaning/
+│       ├── __init__.py
+│       └── calendar_cleaning.py
+├── utils/
+│   ├── __init__.py
+│   └── cleaning_utils.py
 ├── docs/
 │   ├── columns.md
 │   └── insights.md
