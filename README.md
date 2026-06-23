@@ -18,7 +18,7 @@
 
 ---
 
-## Current Milestone — Merge & Validate
+## Current Milestone — Feature Engineering
 
 | Step | Status |
 |------|--------|
@@ -30,7 +30,7 @@
 | Sales Train Cleaning | Done |
 | Sell Prices Cleaning | Done |
 | Merge & Validate | Done |
-| Feature Engineering | Upcoming |
+| Feature Engineering | In Progress |
 | EDA | Upcoming |
 | Modeling | Upcoming |
 | Deployment | Upcoming |
@@ -50,7 +50,8 @@ GRADUATION_PROJECT/
 │       ├── calendar_cleaned.parquet
 │       ├── sales_train_cleaned.parquet
 │       ├── sell_prices_cleaned.parquet
-│       └── df_merged.parquet
+│       ├── df_merged.parquet
+│       └── time_features.parquet
 │
 ├── notebooks/
 │   ├── data_understanding/
@@ -61,8 +62,10 @@ GRADUATION_PROJECT/
 │   │   ├── calendar_cleaning.ipynb
 │   │   ├── sales_train_cleaning.ipynb
 │   │   └── sell_prices_cleaning.ipynb
-│   └── data_merging/
-│       └── 1_merge.ipynb
+│   ├── data_merging/
+│   │   └── 1_merge.ipynb
+│   └── feature_engineering/
+│       └── 1_feature_engineering.ipynb
 │
 ├── src/
 │   ├── data_cleaning/
@@ -70,9 +73,12 @@ GRADUATION_PROJECT/
 │   │   ├── calendar_cleaning.py
 │   │   ├── sales_train_cleaning.py
 │   │   └── sell_prices_cleaning.py
-│   └── data_merging/
+│   ├── data_merging/
+│   │   ├── __init__.py
+│   │   └── merge.py
+│   └── feature_engineering/
 │       ├── __init__.py
-│       └── merge.py
+│       └── feature_engineering.py
 │
 ├── utils/
 │   ├── __init__.py
@@ -86,6 +92,8 @@ GRADUATION_PROJECT/
 │   │   └── sell_prices_cleaning.md
 │   ├── merging_docs/
 │   │   └── merge.md
+│   ├── feature_engineering_docs/
+│   │   └── feature_engineering.md
 │   ├── columns.md
 │   └── insights.md
 │
