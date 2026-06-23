@@ -18,7 +18,7 @@
 
 ---
 
-## Current Milestone — Data Collection & Understanding
+## Current Milestone — Merge & Validate
 
 | Step | Status |
 |------|--------|
@@ -29,7 +29,9 @@
 | Calendar Cleaning | Done |
 | Sales Train Cleaning | Done |
 | Sell Prices Cleaning | Done |
-| Merge & Validate | In Progress |
+| Merge & Validate | Done |
+| Feature Engineering | Upcoming |
+| EDA | Upcoming |
 | Modeling | Upcoming |
 | Deployment | Upcoming |
 
@@ -47,35 +49,43 @@ GRADUATION_PROJECT/
 │   └── processed/
 │       ├── calendar_cleaned.parquet
 │       ├── sales_train_cleaned.parquet
-│       └── sell_prices_cleaned.parquet
+│       ├── sell_prices_cleaned.parquet
+│       └── df_merged.parquet
 │
 ├── notebooks/
 │   ├── data_understanding/
 │   │   ├── 1_calendar_understanding.ipynb
 │   │   ├── 2_sales_train_understanding.ipynb
 │   │   └── 3_sell_prices_understanding.ipynb
-│   └── data_cleaning/
-│       ├── calendar_cleaning.ipynb
-│       ├── sales_train_cleaning.ipynb
-│       └── sell_prices_cleaning.ipynb
+│   ├── data_cleaning/
+│   │   ├── calendar_cleaning.ipynb
+│   │   ├── sales_train_cleaning.ipynb
+│   │   └── sell_prices_cleaning.ipynb
+│   └── data_merging/
+│       └── 1_merge.ipynb
 │
 ├── src/
-│   └── data_cleaning/
+│   ├── data_cleaning/
+│   │   ├── __init__.py
+│   │   ├── calendar_cleaning.py
+│   │   ├── sales_train_cleaning.py
+│   │   └── sell_prices_cleaning.py
+│   └── data_merging/
 │       ├── __init__.py
-│       ├── calendar_cleaning.py
-│       ├── sales_train_cleaning.py
-│       └── sell_prices_cleaning.py
+│       └── merge.py
 │
 ├── utils/
 │   ├── __init__.py
 │   ├── cleaning_utils.py
-│   └── loading_utils.py
+│   └── formatting.py
 │
 ├── docs/
 │   ├── cleaning_docs/
 │   │   ├── calendar_cleaning.md
 │   │   ├── sales_train_cleaning.md
 │   │   └── sell_prices_cleaning.md
+│   ├── merging_docs/
+│   │   └── merge.md
 │   ├── columns.md
 │   └── insights.md
 │
@@ -83,6 +93,8 @@ GRADUATION_PROJECT/
 ├── main.py
 ├── requirements.txt
 └── README.md
+```
+
 ---
 
 ## Datasets
@@ -92,6 +104,7 @@ GRADUATION_PROJECT/
 | `calendar.csv` | 1,969 | 14 | Daily calendar with events and SNAP flags |
 | `sales_train_evaluation.csv` | 30,490 | 1,947 | Unit sales per item per day (wide format) |
 | `sell_prices.csv` | ~6.8M | 4 | Weekly sell price per item per store |
+| `df_merged.parquet` | ~59.2M | 18 | Merged long-format dataset ready for feature engineering |
 
 See [`docs/columns.md`](docs/columns.md) for full column-level documentation.
 
@@ -118,6 +131,7 @@ numpy>=1.26
 matplotlib>=3.8
 seaborn>=0.13
 python-dotenv==1.2.2
+pyarrow>=14.0
 ```
 
 ---
