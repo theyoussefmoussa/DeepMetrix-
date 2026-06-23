@@ -35,5 +35,5 @@ def merge():
     output_path = os.path.join('/home/youssef/Projects/walmart-stores', 'data', 'processed', 'df_merged.parquet')
     df_merged.to_parquet(output_path, engine='pyarrow', index=False)
     print("merge.py: Done")
-    print(f"Dataset Merged: {sales.shape[0]:,} rows, {sales.shape[1]} columns")
+    print(f"Dataset Merged: {df_merged.shape[0]:,} rows, {df_merged.shape[1]} columns")
     print(f"Missing Valuse Count After Merging: {df_merged["sell_price"].isnull().sum()}")
