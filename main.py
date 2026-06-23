@@ -1,7 +1,14 @@
 from src.data_cleaning.calendar_cleaning import calendar_cleaning
 from src.data_cleaning.sales_train_cleaning import sales_train_cleaning
 from src.data_cleaning.sell_prices_cleaning import sell_prices_cleaning
+from src.data_merging.merge import merge
+from utils.formatting import separator
 if __name__ == "__main__":
+    separator(title='Calendar Cleaning')
     calendar_cleaning()
+    separator(title='Sales Train Cleaning')
     sales_train_cleaning()
+    separator(title='Sell Prices Cleaning')
     sell_prices_cleaning()
+    separator(title='Merging')
+    merge()
