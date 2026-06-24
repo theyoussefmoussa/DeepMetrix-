@@ -5,6 +5,7 @@ from src.data_merging.merge import merge
 from utils.formatting import separator
 from src.feature_engineering.time_features import time_features
 from src.feature_engineering.lag_features import lag_features
+from src.feature_engineering.rolling_features import rolling_features
 if __name__ == "__main__":
     separator(title='Calendar Cleaning')
     calendar_cleaning()
@@ -18,3 +19,5 @@ if __name__ == "__main__":
     time_features()
     separator(title='Lag Features')
     lag_features()
+    separator(title='Rolling Features')
+    rolling_features()

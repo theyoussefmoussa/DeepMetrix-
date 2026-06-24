@@ -50,6 +50,7 @@ GRADUATION_PROJECT/
 │       ├── df_merged.parquet
 │       ├── time_features.parquet
 │       └── lag_features.parquet
+│       └── rolling_features.parquet
 │
 ├── notebooks/
 │   ├── data_understanding/
@@ -65,6 +66,7 @@ GRADUATION_PROJECT/
 │   └── feature_engineering/
 │       └── lag_features.ipynb
 │       └── time_features.ipynb
+│       └── rolling_features.ipynb
 │
 ├── src/
 │   ├── data_cleaning/
@@ -79,6 +81,7 @@ GRADUATION_PROJECT/
 │       ├── __init__.py
 │       ├── time_features.py
 │       └── lag_features.py
+│       └── rolling_features.py
 │
 ├── utils/
 │   ├── __init__.py
@@ -95,6 +98,7 @@ GRADUATION_PROJECT/
 │   ├── feature_engineering_docs/
 │   │   └── time_features.md
 |   |   └── lag_features.md
+│       └── rolling_features.md
 │   ├── columns.md
 │   └── insights.md
 │
@@ -111,8 +115,9 @@ GRADUATION_PROJECT/
 | `sales_train_evaluation.csv` | 30,490 | 1,947 | Unit sales per item per day (wide format) |
 | `sell_prices.csv` | ~6.8M | 4 | Weekly sell price per item per store |
 | `df_merged.parquet` | ~59.2M | 18 | Merged long-format dataset ready for feature engineering |
+| `time_features.parquet` | ~59.2M | 9 | `day_number`, `walmart_year_week`, `month_name`, `weekday`, `year`, `month`, `week`, `day`, `quarter`, `is_weekend`, `is_month_start`, `is_month_end` |
 | `lag_features.parquet` | ~59.2M | 4 | `item_store_id`, `day_number`, `sales`, `lag_7`, `lag_28` |
-
+| `rolling_features.parquet` | ~59.2M | 6 | `item_store_id`, `day_number`, `sales`, `rolling_mean_7`, `rolling_mean_28`, `rolling_std_7` |
 ## Setup & Usage
 
 ```bash
