@@ -18,8 +18,8 @@
 
 ---
 
+---
 ## Current Milestone — Feature Engineering
-
 | Step | Status |
 |------|--------|
 | Data Collection | Done |
@@ -34,11 +34,8 @@
 | EDA | Upcoming |
 | Modeling | Upcoming |
 | Deployment | Upcoming |
-
 ---
-
 ## Project Structure
-
 ```
 GRADUATION_PROJECT/
 ├── data/
@@ -51,21 +48,23 @@ GRADUATION_PROJECT/
 │       ├── sales_train_cleaned.parquet
 │       ├── sell_prices_cleaned.parquet
 │       ├── df_merged.parquet
-│       └── time_features.parquet
+│       ├── time_features.parquet
+│       └── lag_features.parquet
 │
 ├── notebooks/
 │   ├── data_understanding/
-│   │   ├── 1_calendar_understanding.ipynb
-│   │   ├── 2_sales_train_understanding.ipynb
-│   │   └── 3_sell_prices_understanding.ipynb
+│   │   ├── calendar_understanding.ipynb
+│   │   ├── sales_train_understanding.ipynb
+│   │   └── sell_prices_understanding.ipynb
 │   ├── data_cleaning/
 │   │   ├── calendar_cleaning.ipynb
 │   │   ├── sales_train_cleaning.ipynb
 │   │   └── sell_prices_cleaning.ipynb
 │   ├── data_merging/
-│   │   └── 1_merge.ipynb
+│   │   └── merge.ipynb
 │   └── feature_engineering/
-│       └── 1_feature_engineering.ipynb
+│       └── lag_features.ipynb
+│       └── time_features.ipynb
 │
 ├── src/
 │   ├── data_cleaning/
@@ -78,7 +77,8 @@ GRADUATION_PROJECT/
 │   │   └── merge.py
 │   └── feature_engineering/
 │       ├── __init__.py
-│       └── feature_engineering.py
+│       ├── time_features.py
+│       └── lag_features.py
 │
 ├── utils/
 │   ├── __init__.py
@@ -90,10 +90,11 @@ GRADUATION_PROJECT/
 │   │   ├── calendar_cleaning.md
 │   │   ├── sales_train_cleaning.md
 │   │   └── sell_prices_cleaning.md
-│   ├── merging_docs/
+│   ├── data_merging/
 │   │   └── merge.md
 │   ├── feature_engineering_docs/
-│   │   └── feature_engineering.md
+│   │   └── time_features.md
+|   |   └── lag_features.md
 │   ├── columns.md
 │   └── insights.md
 │
@@ -102,21 +103,15 @@ GRADUATION_PROJECT/
 ├── requirements.txt
 └── README.md
 ```
-
 ---
-
 ## Datasets
-
 | File | Rows | Cols | Description |
 |------|------|------|-------------|
 | `calendar.csv` | 1,969 | 14 | Daily calendar with events and SNAP flags |
 | `sales_train_evaluation.csv` | 30,490 | 1,947 | Unit sales per item per day (wide format) |
 | `sell_prices.csv` | ~6.8M | 4 | Weekly sell price per item per store |
 | `df_merged.parquet` | ~59.2M | 18 | Merged long-format dataset ready for feature engineering |
-
-See [`docs/columns.md`](docs/columns.md) for full column-level documentation.
-
----
+| `lag_features.parquet` | ~59.2M | 4 | `item_store_id`, `day_number`, `sales`, `lag_7`, `lag_28` |
 
 ## Setup & Usage
 
@@ -140,6 +135,7 @@ matplotlib>=3.8
 seaborn>=0.13
 python-dotenv==1.2.2
 pyarrow>=14.0
+polars>=1.42    
 ```
 
 ---
