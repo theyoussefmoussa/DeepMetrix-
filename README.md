@@ -102,11 +102,18 @@ GRADUATION_PROJECT/
 │   ├── feature_engineering_docs/
 │   │   └── time_features.md
 |   |   └── lag_features.md
-│       └── rolling_features.md
-│       └── price_features.md
+│   |   └── rolling_features.md
+│   |   └── price_features.md
+│   ├── eda_docs/
+│   |   └── univariate_analysis.md
+|   |
 │   ├── columns.md
 │   └── insights.md
 │
+├── outputs/
+│   ├── univariate_analysis/
+│   │   ├── category_counts.png
+│   │   ├── top_10_event_name.png
 ├── .gitignore
 ├── main.py
 ├── requirements.txt
