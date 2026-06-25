@@ -4,6 +4,7 @@
 - cast `day_number` from string to int16 after melt.
 - merge `sales_long` with `calendar_cleaned` on `day_number` (left join) → (59,181,090 × 17).
 - merge result with `sell_prices_cleaned` on `store_id` + `item_id` + `walmart_year_week` (left join) → (59,181,090 × 18).
+- fill missing values in `sell_price` with 0.
 - validate row count after each merge step.
 - save final merged dataset to `data/processed/df_merged.parquet`.
 ---------------------------
