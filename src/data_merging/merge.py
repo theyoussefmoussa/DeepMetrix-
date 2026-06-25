@@ -30,6 +30,8 @@ def merge():
     how="left"
     )
 
+    # fill missing values
+    df_merged['sell_price'] = df_merged['sell_price'].fillna(0)
 
     # Save Output
     output_path = os.path.join('/home/youssef/Projects/walmart-stores', 'data', 'processed', 'df_merged.parquet')
