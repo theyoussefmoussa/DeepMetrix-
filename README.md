@@ -30,8 +30,8 @@
 | Sales Train Cleaning | Done |
 | Sell Prices Cleaning | Done |
 | Merge & Validate | Done |
-| Feature Engineering | In Progress |
-| EDA | Upcoming |
+| Feature Engineering | Done |
+| EDA | In Progress |
 | Modeling | Upcoming |
 | Deployment | Upcoming |
 ---
@@ -90,6 +90,7 @@ GRADUATION_PROJECT/
 │   ├── __init__.py
 │   ├── cleaning_utils.py
 │   └── formatting.py
+│   └── visualization_utils.py
 │
 ├── docs/
 │   ├── cleaning_docs/
