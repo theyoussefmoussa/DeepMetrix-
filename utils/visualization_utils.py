@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+import os
 
 def set_labels(title, xlabel, ylabel="Frequency"):
     """Set title, xlabel, and ylabel for a matplotlib plot."""
@@ -18,3 +18,11 @@ def highlight_max_bar(ax):
     for bar in ax.patches:
         if bar.get_height() == max_val:
             bar.set_color("red")
+
+
+def save_fig(fig, output_path):
+    """Save and close a matplotlib figure."""
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    plt.tight_layout()
+    fig.savefig(output_path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
