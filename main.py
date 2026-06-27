@@ -8,6 +8,7 @@ from src.feature_engineering.lag_features import lag_features
 from src.feature_engineering.rolling_features import rolling_features
 from src.feature_engineering.price_features import price_features
 from src.eda.univariate_analysis import univarite_analysis
+from src.eda.final_merge import final_merge
 if __name__ == "__main__":
     separator(title='Calendar Cleaning')
     calendar_cleaning()
@@ -27,3 +28,5 @@ if __name__ == "__main__":
     price_features()
     separator("EDA: Univariate Analysis")
     univarite_analysis()
+    separator("EDA: Final Merge")
+    final_merge()
