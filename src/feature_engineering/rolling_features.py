@@ -14,7 +14,7 @@ def rolling_features():
         pl.col('sales').shift(1).rolling_mean(28).over('item_store_id').alias('rolling_mean_28'), # rolling within monthly (montly trending)
         pl.col('sales').shift(1).rolling_std(7).over('item_store_id').alias('rolling_std_7'), 
     ])
-    
+    df = df.drop("sales")
     print(f"Rolling Features Shape: {df.shape}")
     print(f"Memory Usage: {df.estimated_size('mb'):.1f} MB")
 

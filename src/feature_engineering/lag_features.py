@@ -13,6 +13,7 @@ def lag_features():
         pl.col("sales").shift(7).over("item_store_id").alias("lag_7"),
         pl.col("sales").shift(28).over("item_store_id").alias("lag_28"),
     ])
+    df = df.drop('sales')
 
     print(f"Lag Features Shape: {df.shape}")
     print(f"Memory Usage: {df.estimated_size('mb'):.1f} MB")

@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 def time_features(): 
-    time_cols = ['date', 'day_number', 'walmart_year_week', 'month_name', 'weekday']
+    time_cols = ['date', 'day_number']
     df_time = pd.read_parquet('/home/youssef/Projects/walmart-stores/data/processed/df_merged.parquet', columns=time_cols)
 
     # Extract Date Features 
