@@ -170,6 +170,17 @@ cd DeepMetrix-
 
 # 2. Install dependencies
 pip install -r requirements.txt
+
+# 3. Setup environment
+cp .env.example .env
+# edit .env and set BASE_PATH to your project path
+
+# 4. Download the dataset from Kaggle
+# https://www.kaggle.com/competitions/m5-forecasting-accuracy
+# place the files in data/raw/
+
+# 5. Run the pipeline
+python3 main.py
 ```
 
 ---
