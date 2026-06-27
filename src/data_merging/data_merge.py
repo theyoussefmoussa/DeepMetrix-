@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-def merge(): 
+def data_merge(): 
     # Load Data
     calendar = pd.read_parquet('/home/youssef/Projects/walmart-stores/data/processed/calendar_cleaned.parquet')
     sales = pd.read_parquet('/home/youssef/Projects/walmart-stores/data/processed/sales_train_cleaned.parquet')

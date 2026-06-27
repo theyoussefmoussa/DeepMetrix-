@@ -1,7 +1,7 @@
 from src.data_cleaning.calendar_cleaning import calendar_cleaning
 from src.data_cleaning.sales_train_cleaning import sales_train_cleaning
 from src.data_cleaning.sell_prices_cleaning import sell_prices_cleaning
-from src.data_merging.merge import merge
+from src.data_merging.data_merge import data_merge
 from utils.formatting import separator
 from src.feature_engineering.time_features import time_features
 from src.feature_engineering.lag_features import lag_features
@@ -16,8 +16,8 @@ if __name__ == "__main__":
     sales_train_cleaning()
     separator(title='Sell Prices Cleaning')
     sell_prices_cleaning()
-    separator(title='Merging')
-    merge()
+    separator(title='Data Merging')
+    data_merge()
     separator(title="Time Features")
     time_features()
     separator(title='Lag Features')
