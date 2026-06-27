@@ -1,9 +1,11 @@
 import polars as pl
-
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 def lag_features():
+    BASE_PATH = os.environ.get("BASE_PATH")
     df = pl.read_parquet(
-        "/home/youssef/Projects/walmart-stores/data/processed/df_merged.parquet",
+        f"{BASE_PATH}/data/processed/df_merged.parquet",
         columns=["item_store_id", "day_number", "sales"]
     )
 
@@ -18,7 +20,7 @@ def lag_features():
     print(f"Lag Features Shape: {df.shape}")
     print(f"Memory Usage: {df.estimated_size('mb'):.1f} MB")
 
-    output_path = "/home/youssef/Projects/walmart-stores/data/processed/lag_features.parquet"
+    output_path = f"{BASE_PATH}/data/processed/lag_features.parquet"
     df.write_parquet(output_path)
     print("lag_features.py: Done")
 

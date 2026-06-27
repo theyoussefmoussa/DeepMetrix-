@@ -1,10 +1,12 @@
 import os
 import pandas as pd
-
+from dotenv import load_dotenv
+load_dotenv()
 from src.data_cleaning.load_data import load_data
 
 def sales_train_cleaning(): 
-    file_path = '/home/youssef/Projects/walmart-stores/data/raw/sales_train_evaluation.csv'
+    BASE_PATH = os.environ.get("BASE_PATH")
+    file_path = f'{BASE_PATH}/data/raw/sales_train_evaluation.csv'
     sales = load_data(file_path)
     # Memory Usage
     print(f"Before Cleaning Sales Train: {sales.memory_usage(deep=True).sum() / 1e6:.1f} MB")
@@ -25,7 +27,7 @@ def sales_train_cleaning():
     print(f"After Cleaning Sales Train: {sales.memory_usage(deep=True).sum() / 1e6:.1f} MB")
 
     # Save to parquet
-    output_path = os.path.join('/home/youssef/Projects/walmart-stores', 'data', 'processed', 'sales_train_cleaned.parquet')
+    output_path = os.path.join(BASE_PATH, 'data', 'processed', 'sales_train_cleaned.parquet') # type: ignore
     sales.to_parquet(output_path, engine='pyarrow', index=False)
     print("sales_train_cleaning.py: Done")
     print(f"Sales Train Cleaned: {sales.shape[0]:,} rows, {sales.shape[1]} columns")

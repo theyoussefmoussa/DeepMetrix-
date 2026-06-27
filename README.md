@@ -140,6 +140,7 @@ GRADUATION_PROJECT/
 │
 ├── .gitignore
 ├── main.py
+├── .env
 ├── requirements.txt
 └── README.md
 ```

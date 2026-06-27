@@ -1,9 +1,12 @@
 import pandas as pd
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from src.data_cleaning.load_data import load_data
 def sell_prices_cleaning():
     # load data
-    file_path = '/home/youssef/Projects/walmart-stores/data/raw/sell_prices.csv'
+    BASE_PATH  = os.environ.get("BASE_PATH")
+    file_path = f'{BASE_PATH}/data/raw/sell_prices.csv'
     price = load_data(file_path)
 
     print(f"Before Cleaning Sell Prices: {price.memory_usage(deep=True).sum() / 1e6:.1f} MB")
@@ -23,7 +26,7 @@ def sell_prices_cleaning():
     price['sell_price'] = price['sell_price'].astype('float32')
 
     # save the output
-    output_path = os.path.join('/home/youssef/Projects/walmart-stores', 'data', 'processed', 'sell_prices_cleaning.parquet')
+    output_path = os.path.join(BASE_PATH, 'data', 'processed', 'sell_prices_cleaning.parquet') # type: ignore
     price.to_parquet(output_path, engine='pyarrow', index=False)
     print(f"After Cleaning Sell Prices: {price.memory_usage(deep=True).sum() / 1e6:.1f} MB")
     print("sell_prices_cleaning.py: Done")

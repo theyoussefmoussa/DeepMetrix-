@@ -1,9 +1,12 @@
 import polars as pl
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 def price_features():
+    BASE_PATH = os.environ.get("BASE_PATH")
     df = pl.read_parquet(
-        "/home/youssef/Projects/walmart-stores/data/processed/df_merged.parquet",
+        f"{BASE_PATH}/data/processed/df_merged.parquet",
         columns=["item_store_id", "day_number", "sell_price", "store_id"]
     )
 
@@ -20,7 +23,7 @@ def price_features():
     print(f"Price Features Shape: {df.shape}")
     print(f"Memory Usage: {df.estimated_size('mb'):.1f} MB")
 
-    output_path = "/home/youssef/Projects/walmart-stores/data/processed/price_features.parquet"
+    output_path = f"{BASE_PATH}/data/processed/price_features.parquet"
     df.write_parquet(output_path)
     print("price_features.py: Done")
 

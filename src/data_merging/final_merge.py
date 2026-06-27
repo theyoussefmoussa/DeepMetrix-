@@ -1,6 +1,8 @@
 import polars as pl
-
-BASE_PATH = "/home/youssef/Projects/walmart-stores"
+import os
+from dotenv import load_dotenv
+load_dotenv()
+BASE_PATH = os.environ.get("BASE_PATH")
 PROCESSED = f"{BASE_PATH}/data/processed"
 
 

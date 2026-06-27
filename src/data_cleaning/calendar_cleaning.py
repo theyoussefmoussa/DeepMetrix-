@@ -3,11 +3,12 @@ import pandas as pd
 
 from src.data_cleaning.load_data import load_data
 from utils.cleaning_utils import fill_missing
-
+from dotenv import load_dotenv
+load_dotenv()
 
 def calendar_cleaning():
-
-    file_path = '/home/youssef/Projects/walmart-stores/data/raw/calendar.csv'
+    BASE_PATH = os.environ.get("BASE_PATH")
+    file_path = f'{BASE_PATH}/data/raw/calendar.csv'
     calendar = load_data(file_path)
     # Renaming columns for readability
     calendar.rename(columns={
@@ -48,7 +49,7 @@ def calendar_cleaning():
         calendar[col] = calendar[col].astype(bool)
 
     # Save to parquet
-    output_path = os.path.join('/home/youssef/Projects/walmart-stores', 'data', 'processed', 'calendar_cleaned.parquet')
+    output_path = os.path.join(BASE_PATH, 'data', 'processed', 'calendar_cleaned.parquet') # type: ignore
     calendar.to_parquet(output_path, engine='pyarrow', index=False)
     print("calendar_cleaning.py: Done")
     print(f"Calendar Cleaned: {calendar.shape[0]:,} rows, {calendar.shape[1]} columns")

@@ -1,8 +1,11 @@
 import polars as pl
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 def rolling_features():
+    BASE_PATH = os.environ.get("BASE_PATH")
     df = pl.read_parquet(
-            "/home/youssef/Projects/walmart-stores/data/processed/df_merged.parquet",
+            f"{BASE_PATH}/data/processed/df_merged.parquet",
             columns=["item_store_id", "day_number", "sales"]
         )
     
@@ -18,7 +21,7 @@ def rolling_features():
     print(f"Rolling Features Shape: {df.shape}")
     print(f"Memory Usage: {df.estimated_size('mb'):.1f} MB")
 
-    output_path = "/home/youssef/Projects/walmart-stores/data/processed/rolling_features.parquet"
+    output_path = f"{BASE_PATH}/data/processed/rolling_features.parquet"
     df.write_parquet(output_path)
     print("rolling_features.py: Done")
 

@@ -4,15 +4,17 @@ import matplotlib
 matplotlib.use("Agg") # to save plots without showing
 import matplotlib.pyplot as plt
 import sys
-sys.path.append("../../")
 from utils.visualization_utils import set_labels
 from utils.visualization_utils import highlight_max_bar, save_fig
-
+import os 
+from dotenv import load_dotenv
+load_dotenv()
+sys.path.append(os.environ.get("BASE_PATH")) # type: ignore
 def univarite_analysis():
-    df = pd.read_parquet("/home/youssef/Projects/walmart-stores/data/processed/df_merged.parquet")
+    BASE_PATH = os.environ.get("BASE_PATH")
+    df = pd.read_parquet(f"{BASE_PATH}/data/processed/df_merged.parquet")
     df_sample = df.sample(frac=0.1, random_state=42)  # 10% = ~5.9M row
-    OUTPUT_DIR = "outputs/univariate_analysis"
-
+    OUTPUT_DIR = f"{BASE_PATH}/outputs/univariate_analysis"
     # Non Zero sales
     non_zero = df_sample[df_sample['sales'] > 0]['sales']
 

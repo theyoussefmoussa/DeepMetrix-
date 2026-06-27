@@ -1,11 +1,13 @@
 import pandas as pd
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 def data_merge(): 
     # Load Data
-    calendar = pd.read_parquet('/home/youssef/Projects/walmart-stores/data/processed/calendar_cleaned.parquet')
-    sales = pd.read_parquet('/home/youssef/Projects/walmart-stores/data/processed/sales_train_cleaned.parquet')
-    price = pd.read_parquet('/home/youssef/Projects/walmart-stores/data/processed/sell_prices_cleaning.parquet')
+    BASE_PATH = os.environ.get("BASE_PATH")
+    calendar = pd.read_parquet(f"{BASE_PATH}/data/processed/calendar_cleaned.parquet")
+    sales = pd.read_parquet(f"{BASE_PATH}/data/processed/sales_train_cleaned.parquet")
+    price = pd.read_parquet(f"{BASE_PATH}/data/processed/sell_prices_cleaning.parquet")
 
     # Merging Sales days
     sales_long = pd.melt(
@@ -34,7 +36,7 @@ def data_merge():
     df_merged['sell_price'] = df_merged['sell_price'].fillna(0)
 
     # Save Output
-    output_path = os.path.join('/home/youssef/Projects/walmart-stores', 'data', 'processed', 'df_merged.parquet')
+    output_path = os.path.join(BASE_PATH, 'data', 'processed', 'df_merged.parquet') # type: ignore
     df_merged.to_parquet(output_path, engine='pyarrow', index=False)
     print("merge.py: Done")
     print(f"Dataset Merged: {df_merged.shape[0]:,} rows, {df_merged.shape[1]} columns")

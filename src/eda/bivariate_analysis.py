@@ -4,10 +4,11 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import sys
-sys.path.append("/home/youssef/Projects/walmart-stores")
+import os
+sys.path.append(os.environ.get("BASE_PATH")) # type: ignore
 from utils.visualization_utils import set_labels, highlight_max_bar, save_fig, COLORS
 
-BASE_PATH = "/home/youssef/Projects/walmart-stores"
+BASE_PATH = os.environ.get("BASE_PATH")
 OUTPUT_DIR = f"{BASE_PATH}/outputs/bivariate_analysis"
 
 

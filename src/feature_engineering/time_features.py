@@ -1,9 +1,11 @@
 import pandas as pd
-import numpy as np
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 def time_features(): 
+    BASE_PATH = os.environ.get('BASE_PATH')
     time_cols = ['date', 'day_number']
-    df_time = pd.read_parquet('/home/youssef/Projects/walmart-stores/data/processed/df_merged.parquet', columns=time_cols)
+    df_time = pd.read_parquet(f'{BASE_PATH}/data/processed/df_merged.parquet', columns=time_cols)
 
     # Extract Date Features 
     df_time['year'] = df_time['date'].dt.year
@@ -28,6 +30,6 @@ def time_features():
 
 
     # Save Outputs
-    output_path = '/home/youssef/Projects/walmart-stores/data/processed/time_features.parquet'
+    output_path = f'{BASE_PATH}/data/processed/time_features.parquet'
     df_time.to_parquet(output_path, index=False)
     print("time_features.py: Done")
