@@ -1,6 +1,17 @@
 import matplotlib.pyplot as plt
 import os
 
+# Constant Colors
+COLORS = [
+    "#66C2A5",
+    "#FC8D62",
+    "#8DA0CB",
+    "#E78AC3",
+    "#A6D854",
+    "#FFD92F",
+]
+
+
 def set_labels(title, xlabel, ylabel="Frequency"):
     """Set title, xlabel, and ylabel for a matplotlib plot."""
     title = title.title()
