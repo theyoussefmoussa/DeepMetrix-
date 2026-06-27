@@ -9,7 +9,7 @@ from src.feature_engineering.rolling_features import rolling_features
 from src.feature_engineering.price_features import price_features
 from src.eda.univariate_analysis import univarite_analysis
 from src.eda.bivariate_analysis import bivariate_analysis
-from src.eda.final_merge import final_merge
+from data_merging.final_merge import final_merge
 if __name__ == "__main__":
     separator(title='Calendar Cleaning')
     calendar_cleaning()
