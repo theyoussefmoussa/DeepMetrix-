@@ -13,7 +13,6 @@ def univarite_analysis():
     df_sample = df.sample(frac=0.1, random_state=42)  # 10% = ~5.9M row
     OUTPUT_DIR = "outputs/univariate_analysis"
 
-
     # Non Zero sales
     non_zero = df_sample[df_sample['sales'] > 0]['sales']
 
@@ -87,5 +86,7 @@ def univarite_analysis():
     set_labels("Top 10 Event Name Counts", xlabel="Count", ylabel="Event Name")
     save_fig(fig, f"{OUTPUT_DIR}/top_10_event_name.png")
 
+    print(f"Checkout graphs in {OUTPUT_DIR}")
+    print("univariate_analysis.py done") 
 if __name__ == "__main__":
     univarite_analysis()

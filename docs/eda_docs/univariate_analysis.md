@@ -5,6 +5,7 @@
 - plot value counts for `cat_id`, `dept_id`, `store_id`, `state_id` as vertical barplots with highest bar highlighted.
 - plot top 10 event names (excluding "No Event") as a horizontal barplot.
 - save all plots to `outputs/univariate_analysis/`.
+- print a message to user for ending this phase and saving plots to the desired output.
 
 ---
 
